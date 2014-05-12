@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For Cassandra 0.7.* -->
+    <server>
+        <metric mbean-name-pattern="org.apache.cassandra.db:cache=HintsColumnFamilyRowCache,keyspace=system,type=Caches"
+                category="HintsColumnFamilyRowCache">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>Size</attribute-name>
+                    <counter-name>Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>Capacity</attribute-name>
+                    <counter-name>Capacity</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>Requests</attribute-name>
+                    <counter-name>Requests</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>Hits</attribute-name>
+                    <counter-name>Hits</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>RecentHitRate</attribute-name>
+                    <counter-name>RecentHitRate</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="org.apache.cassandra.internal:type=GossipStage"
+                category="GossipStage">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>ActiveCount</attribute-name>
+                    <counter-name>ActiveCount</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>CompletedTasks</attribute-name>
+                    <counter-name>CompletedTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>PendingTasks</attribute-name>
+                    <counter-name>PendingTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="org.apache.cassandra.net:type=FailureDetector"
+                category="FailureDetector">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>PhiConvictThreshold</attribute-name>
+                    <counter-name>PhiConvictThreshold</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>AllEndpointStates</attribute-name>
+                    <counter-name>AllEndpointStates</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="org.apache.cassandra.request:type=ReadStage"
+                category="ReadStage">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>CorePoolSize</attribute-name>
+                    <counter-name>CorePoolSize</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>ActiveCount</attribute-name>
+                    <counter-name>ActiveCount</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>CompletedTasks</attribute-name>
+                    <counter-name>CompletedTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>PendingTasks</attribute-name>
+                    <counter-name>PendingTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="org.apache.cassandra.db:type=CompactionManager"
+                category="CompactionManager">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>PendingTasks</attribute-name>
+                    <counter-name>PendingTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>CompletedTasks</attribute-name>
+                    <counter-name>CompletedTasks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="org.apache.cassandra.db:type=StorageProxy"
+                category="StorageProxy">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>RecentReadLatencyMicros</attribute-name>
+                    <counter-name>RecentReadLatencyMicros</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>RecentWriteLatencyMicros</attribute-name>
+                    <counter-name>RecentWriteLatencyMicros</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>RecentRangeLatencyMicros</attribute-name>
+                    <counter-name>RecentRangeLatencyMicros</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>

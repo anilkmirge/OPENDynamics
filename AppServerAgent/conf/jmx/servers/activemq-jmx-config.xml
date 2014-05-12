@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd">
+-->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For ActiveMQ 5.3.2 -->
+    <server>
+        <metric mbean-name-pattern="org.apache.activemq:Type=Broker,*" category="Broker" instance-identifier="BrokerName">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>TotalEnqueueCount</attribute-name>
+                    <counter-name>Total Enqueue Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>TotalDequeueCount</attribute-name>
+                    <counter-name>Total Dequeue Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                 <attribute-counter-mapping>
+                    <attribute-name>TotalConsumerCount</attribute-name>
+                    <counter-name>Total Consumer Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>TotalMessageCount</attribute-name>
+                    <counter-name>Total Message Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MemoryPercentUsage</attribute-name>
+                    <counter-name>Memory Percent Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>StorePercentUsage</attribute-name>
+                    <counter-name>Store Percent Usage</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="org.apache.activemq:Type=Queue,*" category="Queues" instance-identifier="Destination">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>QueueSize</attribute-name>
+                    <counter-name>Queue Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>EnqueueCount</attribute-name>
+                    <counter-name>Enqueue Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>DequeueCount</attribute-name>
+                    <counter-name>Queue Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MemoryPercentUsage</attribute-name>
+                    <counter-name>Memory Percent Usage</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                 <attribute-counter-mapping>
+                    <attribute-name>ConsumerCount</attribute-name>
+                    <counter-name>Consumer Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>ProducerCount</attribute-name>
+                    <counter-name>Producer Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>AverageEnqueueTime</attribute-name>
+                    <counter-name>Average Enqueue Time</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="org.apache.activemq:Type=Topic,*" category="Topics" instance-identifier="Destination">
+           <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>QueueSize</attribute-name>
+                    <counter-name>Queue Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>EnqueueCount</attribute-name>
+                    <counter-name>Enqueue Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>DequeueCount</attribute-name>
+                    <counter-name>Queue Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MemoryPercentUsage</attribute-name>
+                    <counter-name>Memory Percent Usage</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                 <attribute-counter-mapping>
+                    <attribute-name>ConsumerCount</attribute-name>
+                    <counter-name>Consumer Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>ProducerCount</attribute-name>
+                    <counter-name>Producer Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>AverageEnqueueTime</attribute-name>
+                    <counter-name>Average Enqueue Time</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>

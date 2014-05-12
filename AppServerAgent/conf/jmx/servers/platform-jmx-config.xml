@@ -1,0 +1,6 @@
+<jmx-configuration>
+    <!-- Any metrics for MBeans registered in Platform MBean Server can be added here.  -->
+    <server>
+
+    </server>
+</jmx-configuration>

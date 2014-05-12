@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For JBoss 5.x -->
+    <server>
+        <metric mbean-name-pattern="jboss.web:type=ThreadPool,*" category="Web Container Runtime"
+                bean-name="WebThreadPool">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>currentThreadsBusy</attribute-name>
+                    <counter-name>Current Busy Threads</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>activeSize</field-name>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>currentThreadCount</attribute-name>
+                    <counter-name>Current Threads</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>maxThreads</attribute-name>
+                    <counter-name>Maximum Threads</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>maxSize</field-name>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="jboss.web:type=GlobalRequestProcessor,*" category="Web Container Runtime">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>requestCount</attribute-name>
+                    <counter-name>Request Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>sum</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>errorCount</attribute-name>
+                    <counter-name>Error Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>sum</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <!--
+                <attribute-counter-mapping>
+                    <attribute-name>bytesSent</attribute-name>
+                    <counter-name>Total Bytes Sent</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>sum</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>bytesReceived</attribute-name>
+                    <counter-name>Total Bytes Received</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>sum</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                -->
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="jboss.jca:service=ManagedConnectionPool,*" category="JDBC Connection Pools"
+                bean-name="JDBCConnectionPool">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>MaxConnectionsInUseCount</attribute-name>
+                    <counter-name>Maximum Active</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>InUseConnectionCount</attribute-name>
+                    <counter-name>Active Connections</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>activeSize</field-name>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MaxSize</attribute-name>
+                    <counter-name>Maximum Connections</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>maxSize</field-name>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="jboss.j2ee:service=EJB,plugin=pool,*" category="EJB Pools"
+                instance-identifier="jndiName" bean-name="EJBPool">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>CurrentSize</attribute-name>
+                    <counter-name>Active Beans</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>activeSize</field-name>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MaxSize</attribute-name>
+                    <counter-name>Maximum Beans</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>maxSize</field-name>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>

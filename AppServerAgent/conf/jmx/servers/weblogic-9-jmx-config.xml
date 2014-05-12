@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For Weblogic -->
+    <server>
+        <metric mbean-name-pattern="com.bea:*,Type=ServerRuntime" category="Server Domain" instance-identifier="Name">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>SocketsOpenedTotalCount</attribute-name>
+                    <counter-name>Total Open Sockets</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>OpenSocketsCurrentCount</attribute-name>
+                    <counter-name>Current Open Sockets</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="com.bea:*,Type=WorkManagerRuntime" category="Web Container Runtime" instance-identifier="none"
+                query-expression-type="initial-substring" query-attribute="Name" query-value="weblogic.kernel.Default">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>PendingRequests</attribute-name>
+                    <counter-name>Current Pending Requests</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>StuckThreadCount</attribute-name>
+                    <counter-name>Current Requests Stuck</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="com.bea:*,Type=ThreadPoolRuntime" instance-identifier="none" category="Web Container Runtime">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>HoggingThreadCount</attribute-name>
+                    <counter-name>Threads Hogging CPU</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>Throughput</attribute-name>
+                    <counter-name>Current Throughput</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="com.bea:*,Type=JDBCConnectionPoolRuntime" category="JDBC Connection Pools"
+                bean-name="JDBCConnectionPool" instance-identifier="Name">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>ActiveConnectionsCurrentCount</attribute-name>
+                    <counter-name>Current Active Connections</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>activeSize</field-name>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>CurrCapacity</attribute-name>
+                    <counter-name>Current Pool Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MaxCapacity</attribute-name>
+                    <counter-name>Maximum Pool Size</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                    <field-name>maxSize</field-name>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>NumAvailable</attribute-name>
+                    <counter-name>Available Connections</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>WaitingForConnectionCurrentCount</attribute-name>
+                    <counter-name>Threads Waiting For Connections</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>LeakedConnectionCount</attribute-name>
+                    <counter-name>Total Leaked Connections</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric mbean-name-pattern="com.bea:*,Type=JMSDestinationRuntime" category="JMS Destinations" instance-identifier="Name">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>MessagesCurrentCount</attribute-name>
+                    <counter-name>Current Message Count</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>ConsumersCurrentCount</attribute-name>
+                    <counter-name>Current Consumer Count</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>    

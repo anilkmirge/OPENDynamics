@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For Hornet Q -->
+    <server>
+        <metric mbean-name-pattern="org.hornetq:module=JMS,type=Queue,*" category="Queues" >
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>ConsumerCount</attribute-name>
+                    <counter-name>ConsumerCount</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MessageCount</attribute-name>
+                    <counter-name>MessageCount</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>MessagesAdded</attribute-name>
+                    <counter-name>MessagesAdded</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>

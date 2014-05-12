@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- <!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <server>
+        <metric category="Connection Pools"
+            instance-name="connectionPoolModule"
+            mbean-name-pattern="WebSphere:*,type=Perf" metric-path="connectionPoolModule">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>CreateCount</attribute-name>
+                    <counter-name>CreateCount</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>CloseCount</attribute-name>
+                    <counter-name>CloseCount</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>PoolSize</attribute-name>
+                    <counter-name>PoolSize</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>FreePoolSize</attribute-name>
+                    <counter-name>FreePoolSize</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>WaitingThreadCount</attribute-name>
+                    <counter-name>WaitingThreadCount</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>PercentUsed</attribute-name>
+                    <counter-name>PercentUsed</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>UseTime</attribute-name>
+                    <counter-name>UseTime</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>WaitTime</attribute-name>
+                    <counter-name>WaitTime</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        <metric category="Thread Pools"
+            instance-name="threadPoolModule|WebContainer"
+            mbean-name-pattern="WebSphere:*,type=Perf" metric-path="threadPoolModule>WebContainer">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>PoolSize</attribute-name>
+                    <counter-name>PoolSize</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+    </server>
+</jmx-configuration>

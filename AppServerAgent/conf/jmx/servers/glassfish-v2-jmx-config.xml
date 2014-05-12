@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--<!DOCTYPE jmx-configuration SYSTEM "jmx-config.dtd"> -->
+
+<jmx-configuration xmlns="http://www.appdynamics.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.appdynamics.com jmx-config.xsd">
+
+    <!-- JMX Configuration For Glassfish V2 -->
+    <server>
+        <metric mbean-name-pattern="com.sun.appserv:type=GlobalRequestProcessor,*" category="Web Container Runtime">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>requestCount</attribute-name>
+                    <counter-name>Request Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>errorCount</attribute-name>
+                    <counter-name>Error Count</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>bytesSent</attribute-name>
+                    <counter-name>Total Bytes Sent</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>bytesReceived</attribute-name>
+                    <counter-name>Total Bytes Received</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>collective</cluster-rollup-type>
+                </attribute-counter-mapping>
+
+            </attribute-counter-mappings>
+        </metric>
+
+        <!--
+        <metric mbean-name-pattern="com.sun.appserv:type=connection-queue,category=monitor,*"
+                category="Request Queue Length">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>countqueue-count</attribute-name>
+                    <counter-name>Request Queue Length</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        -->
+        <!-- The following config can be uncommented to monitor glassfish JDBC connection pool. Please set the name of the connection
+         pool (not the datasource name) and enable monitoring for the JDBC Pools on glassfish admin console. -->
+        <!--
+        <metric mbean-name-pattern="com.sun.appserv:type=jdbc-connection-pool,category=monitor,name=<set the name of pool>,*"
+                category="JDBC Connection Pools">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>numconnused-current</attribute-name>
+                    <counter-name>Connections In Use</counter-name>
+                    <counter-type>average</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>numconnused-highwatermark</attribute-name>
+                    <counter-name>Max Connections Used</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>numpotentialconnleak-count</attribute-name>
+                    <counter-name>Potential Leaks</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>averageconnwaittime-count</attribute-name>
+                    <counter-name>Avg Wait Time Millis</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>waitqueuelength-count</attribute-name>
+                    <counter-name>Current Wait Queue Length</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>average</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+
+        <metric mbean-name-pattern="com.sun.appserv:type=connection-queue,category=monitor,server=server"
+                category="HTTP Listener Connection Queues">
+            <attribute-counter-mappings>
+                <attribute-counter-mapping>
+                    <attribute-name>countqueued-count</attribute-name>
+                    <counter-name>Connections currently in Queue</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>countqueued15minuteaverage-count</attribute-name>
+                    <counter-name>Average connections queued in last 15 mins</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+                <attribute-counter-mapping>
+                    <attribute-name>countoverflows-count</attribute-name>
+                    <counter-name>No of times queue was full</counter-name>
+                    <counter-type>observation</counter-type>
+                    <time-rollup-type>current</time-rollup-type>
+                    <cluster-rollup-type>individual</cluster-rollup-type>
+                </attribute-counter-mapping>
+            </attribute-counter-mappings>
+        </metric>
+        -->
+    </server>
+</jmx-configuration>

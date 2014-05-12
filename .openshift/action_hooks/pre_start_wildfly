@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export _JAVA_OPTIONS="$_JAVA_OPTIONS -javaagent:$OPENSHIFT_REPO_DIR/AppServerAgent/javaagent.jar"
+export _JAVA_OPTIONS="$_JAVA_OPTIONS -Djboss.modules.system.pkgs=org.jboss.byteman,com.singularity"
+export _JAVA_OPTIONS="$_JAVA_OPTIONS -Dappdynamics.agent.socket.no.local.bind=true"
